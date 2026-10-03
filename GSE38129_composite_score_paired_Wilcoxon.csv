@@ -1,0 +1,9 @@
+"Metric","Value"
+"N_pairs",30
+"Pairs_higher_in_tumor","30 / 30"
+"Mean_paired_difference",5.25
+"CI_95_lower",4.45
+"CI_95_upper",6.05
+"Paired_Wilcoxon_p_exact",1.86265e-09
+"Paired_Wilcoxon_p_normal_approx_exact_FALSE",1.82537e-06
+"Test_used_in_manuscript","exact = TRUE (two-sided)"
