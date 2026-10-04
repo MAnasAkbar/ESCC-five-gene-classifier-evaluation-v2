@@ -4,8 +4,8 @@
 
 **Prognostic Evaluation and Multi-Cohort Cross-Platform Diagnostic Replication of a Five-Gene Transcriptomic Classifier in Esophageal Squamous Cell Carcinoma**
 
-Muhammad Anas Akbar, Nawera Khan
-Department of Biotechnology, Government College University, Lahore, Pakistan
+Muhammad Anas Akbar, Nawera Khan  
+Department of Biotechnology, Government College University, Lahore, Pakistan  
 Corresponding author: rnanasje@gmail.com
 
 Prepared for submission to PLOS ONE, 2026.
@@ -31,8 +31,8 @@ use `exact = TRUE`, matching the exact two-sided test specified in the
 manuscript's Methods (Section 2.5). The previous release used
 `exact = FALSE` (a normal approximation with continuity correction),
 which gave numerically different p-values than the stated method. See
-`results/GSE38129_paired_gene_tests_BH.csv` and
-`results/GSE38129_composite_score_paired_Wilcoxon.csv` for both the
+`GSE38129_paired_gene_tests_BH.csv` and
+`GSE38129_composite_score_paired_Wilcoxon.csv` for both the
 corrected values and, for transparency, the original approximate values.
 No other results, cohorts, or conclusions in the manuscript were
 affected by this correction — GSE38129 remained significant for all
@@ -78,18 +78,18 @@ generated.
 │                                 (data acquisition through figures)
 ├── MANIFEST.txt                # GDC file manifest for TCGA-ESCA raw data
 ├── README.md
-└── results/
-    ├── ESCC_verified_diagnostic_dataset_95_tumor_3_normal.csv
-    ├── GSE20347_verified_pair_mapping.csv
-    ├── GSE20347_coefficient_fixed_transfer_data.csv
-    ├── GSE20347_five_gene_paired_Wilcoxon_results.csv
-    ├── GSE20347_signature_score_paired_differences.csv
-    ├── GSE38129_coefficient_fixed_transfer_data.csv
-    ├── GSE38129_gene_level_expression_tests.csv
-    ├── GSE38129_gene_level_expression_tests_BH_adjusted.csv
-    ├── GSE38129_paired_gene_tests_BH.csv
-    ├── GSE38129_composite_score_paired_Wilcoxon.csv
-    └── GSE121931_sample_ID_mapping.csv
+├── ESCC_verified_diagnostic_dataset_95_tumor_3_normal.csv
+├── GSE20347_verified_pair_mapping.csv
+├── GSE20347_coefficient_fixed_transfer_data.csv
+├── GSE20347_five_gene_paired_Wilcoxon_results.csv
+├── GSE20347_signature_score_paired_differences.csv
+├── GSE38129_coefficient_fixed_transfer_data.csv
+├── GSE38129_gene_level_expression_tests.csv
+├── GSE38129_gene_level_expression_tests_corrected.csv
+├── GSE38129_gene_level_expression_tests_BH_adjusted.csv
+├── GSE38129_paired_gene_tests_BH.csv
+├── GSE38129_composite_score_paired_Wilcoxon.csv
+└── GSE121931_sample_ID_mapping.csv
 ```
 
 `ESCC_analysis_complete.R` runs end to end in eight numbered sections
@@ -145,7 +145,7 @@ From Khalil et al. (2026), Table 3:
 
 ---
 
-## Key Results (current, v1.1)
+## Key Results (current, v1.2)
 
 | Cohort | n (T/N) | AUC | Paired Wilcoxon p (composite score, exact two-sided) |
 |--------|---------|-----|-------------------------------------------------------|
@@ -197,7 +197,8 @@ If you use this code, please cite:
 | GSE20347_five_gene_paired_Wilcoxon_results.csv | Individual gene paired Wilcoxon results (GSE20347) |
 | GSE20347_signature_score_paired_differences.csv | Paired score differences (Normal vs Tumour), GSE20347 |
 | GSE38129_coefficient_fixed_transfer_data.csv | Per-sample scores and z-scores for GSE38129 |
-| GSE38129_gene_level_expression_tests.csv | Initial Welch t-test results, GSE38129 |
+| GSE38129_gene_level_expression_tests.csv | Initial Welch t-test results, GSE38129 (superseded: the sign of the Difference column is reversed; use the `_corrected` or `_BH_adjusted` file) |
+| GSE38129_gene_level_expression_tests_corrected.csv | Welch t-test results with the Difference column corrected (Normal minus Tumour), before BH adjustment |
 | GSE38129_gene_level_expression_tests_BH_adjusted.csv | Welch tests with BH-FDR correction (Table 8) |
 | GSE38129_paired_gene_tests_BH.csv | Exact paired Wilcoxon results with BH-FDR (Table 9; corrected in v1.1) |
 | GSE38129_composite_score_paired_Wilcoxon.csv | Composite-score paired Wilcoxon test, exact vs. approximate (added in v1.1) |
